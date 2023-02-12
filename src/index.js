@@ -1,7 +1,10 @@
-//Here we're importing items we'll need. You can add other imports here.
+import { createPopper } from '@popperjs/core';
 
-//The first function. Remove this.
-const btn = document.querySelector("button");
-btn.onclick = function () {
-  alert("You ran some JavaScript");
-};
+const button = document.querySelector('#button');
+const tooltip = document.querySelector('#tooltip');
+
+// Pass the button, the tooltip, and some options, and Popper will do the
+// magic positioning for you:
+createPopper(button, tooltip, {
+  placement: 'right',
+});

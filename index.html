@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <style>
-      @import "./src/style.css";
-    </style>
-    <title>JSDev</title>
-  </head>
-  <body>
-    <h1>Alright. You're set.</h1>
-    <h2>Now build something amazing!</h2>
-    <button type="button">Click Me!</button>
+<head>
+  <meta charset="UTF-8" />
 
-    <script type="module">
-      import "./src/index.js";
-    </script>
-  </body>
+<style>
+  #tooltip {
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+</style>
+<title>Popper example</title>
+</head>
+
+<body>
+<button id="button" aria-describedby="tooltip">I'm a button</button>
+<div id="tooltip" role="tooltip">I'm a tooltip</div>
+
+<script type="module">
+  import "./src/index.js";
+</script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script>
+  const button = document.querySelector('#button');
+  const tooltip = document.querySelector('#tooltip');
+
+  // Pass the button, the tooltip, and some options, and Popper will do the
+  // magic positioning for you:
+  Popper.createPopper(button, tooltip, {
+    placement: 'right',
+  });
+</script>
+
+</body>
 </html>
